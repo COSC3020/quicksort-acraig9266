@@ -1,18 +1,16 @@
 function quicksort(array) {
-    var high = array.length;
-    console.log(high);
-    var low = 0;
-
-    for (count = array.length; count > 1; count = Math.ceil(count / 2)) {
-        high = Math.ceil((array.length) / count);
+    for (let count = 1; count <= array.length; count = count * 2) {
+        high = Math.max((Math.ceil((array.length) / count) - 1), 1);
         newHigh = high;
-        low = 0; 
-        console.log(high);
-        for (sortNum = 1; sortNum <= array.length / count; sortNum++) {
-            console.log('Call Count: ', sortNum);
+        low = 0;
+        console.log("High: ", high);
+        console.log("count: ", count);
+        for (let i = 0; i <= count; i++) {
             sortHelp(array, low, newHigh);
-            low = high + 1;
-            newHigh = high * sortNum;
+            low = newHigh;
+            newHigh += high;
+            console.log("low", low);
+            console.log("newHigh: ", newHigh);
         }
     }
     return array;
@@ -24,7 +22,7 @@ function sortHelp(arr, lo, hi) {
     }
     piv = lo;
 
-    for (i = lo + 1; i <= hi; i++) {
+    for (let i = lo + 1; i <= hi; i++) {
         if (arr[i] < arr[lo]) {
             swap(arr, ++piv, i);
         }
@@ -39,4 +37,4 @@ function swap(arr, a, b) {
     arr[b] = tmp;
 }
 
-console.log(quicksort([2, 7, 6, 8, 4, 3]));
+console.log(quicksort([0, 1, 1, 0]));
