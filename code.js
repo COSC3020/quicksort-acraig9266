@@ -7,13 +7,10 @@ function quicksort(array) {
             sortHelp(array, low, newHigh);
             low = newHigh;
             newHigh = Math.min(array.length, newHigh + high);
-            console.log("low", low);
-            console.log("newHigh: ", newHigh);
         }
     }
     return array;
 }
-
 function sortHelp(arr, lo, hi) {
     if (lo >= hi) {
         return;
