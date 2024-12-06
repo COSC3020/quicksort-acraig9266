@@ -3,12 +3,10 @@ function quicksort(array) {
         high = Math.max((Math.ceil((array.length) / count) - 1), 1);
         newHigh = high;
         low = 0;
-        console.log("High: ", high);
-        console.log("count: ", count);
         for (let i = 0; i <= count; i++) {
             sortHelp(array, low, newHigh);
             low = newHigh;
-            newHigh += high;
+            newHigh = Math.min(array.length, newHigh + high);
             console.log("low", low);
             console.log("newHigh: ", newHigh);
         }
@@ -36,5 +34,3 @@ function swap(arr, a, b) {
     arr[a] = arr[b];
     arr[b] = tmp;
 }
-
-console.log(quicksort([0, 1, 1, 0]));
