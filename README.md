@@ -18,4 +18,4 @@ Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
-The complexity is $\Theta$(n<sup>2</sup>log(n)). The main Quicksort function contains nested loops that run log(n) and n times. The inner loop if this calls sortHelp which contains a loop of worst-case complexity n. This result in log(n) * n * n complexity or n<sup>2</sup>log(n).
+The complexity is $\Theta$(nlog(n)). The main Quicksort function contains nested loops that run log(n) times in all cases for the outer loop and the inner loop calls the sortHelp function in each iteration. The inner loop calls sortHelp a constant number of times each time we go through the outer loop. This means we get log(n) * c * n which results in log(n) * n or $\Theta$(nlog(n)).
